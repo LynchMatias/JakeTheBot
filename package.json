@@ -1,4 +1,11 @@
 {
+  "name": "JakeTheBot",
+  "description": "Bot trank",
+  "version": "0.1",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+},
   "dependencies": {
     "async-limiter": {
       "version": "1.0.0",
