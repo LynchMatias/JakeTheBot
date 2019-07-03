@@ -36,7 +36,7 @@ module.exports = {
 bot.registry
 .registerDefaultTypes()
     .registerGroups([
-        ['first', 'Your First Command Group'],
+        ['first', 'Comandos basicos'],
         ['second', 'Your Second Command Group'],
     ])
     .registerDefaultGroups()
