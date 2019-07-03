@@ -1,5 +1,5 @@
 const { Command } = require('discord.js-commando');
-const Reminder = require('C:/Users/matia/Desktop/JakeTheBot/models/reminders.js')
+const Reminder = require('../../models/reminders.js')
 
 module.exports = class WaterNoReminder extends Command {
     constructor(client) {
