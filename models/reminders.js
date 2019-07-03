@@ -5,7 +5,7 @@ const reminderSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
     username: String,
     userID: String,
-    reminders: Object,
+    reminders: String,
     frecuencia: Number,
 })
 

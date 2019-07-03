@@ -11,10 +11,13 @@ module.exports = class LeaveCommand extends Command{
     }
 
     run(message){
-        try{
-            message.member.voiceChannel.leave()
-        }catch(err){
-            message.say("Error")
+        if (message.channel.id != '596082817734148157') message.delete();
+        else{
+            try{
+                message.member.voiceChannel.leave()
+            }catch(err){
+                message.say("Error")
+            }
         }
     }
 }

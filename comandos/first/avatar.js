@@ -21,15 +21,18 @@ module.exports = class AvatarCommand extends Command {
     }
 
     run(message, {tag}) {
-        const user = index.getUserFromMention(tag);
-        if(!user){
-            return message.say('Error')
+        if (message.channel.id != '596082817734148157') message.delete();
+        else{
+            const user = index.getUserFromMention(tag);
+            if(!user){
+                return message.say('Error')
+            }
+            
+            var foto = new Discord.RichEmbed()
+                .setColor('#0099ff')
+                .setTitle(user.username)
+                .setImage(user.displayAvatarURL)
+            message.channel.send({embed: foto})
         }
-        
-        var foto = new Discord.RichEmbed()
-            .setColor('#0099ff')
-            .setTitle(user.username)
-            .setImage(user.displayAvatarURL)
-        message.channel.send({embed: foto})
     }
 };

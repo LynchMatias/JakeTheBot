@@ -20,6 +20,9 @@ module.exports = class MeowCommand extends Command {
     }
 
     run(message, {text}){
-        return message.say(text);
+        if (message.channel.id != '596082817734148157') message.delete();
+        else{
+            return message.say(text);
+        }
     }
 };
