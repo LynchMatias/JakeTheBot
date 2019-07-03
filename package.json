@@ -1,7 +1,4 @@
-{
-  "requires": true,
-  "lockfileVersion": 1,
-  "dependencies": {
+ {
     "async-limiter": {
       "version": "1.0.0",
       "resolved": "https://registry.npmjs.org/async-limiter/-/async-limiter-1.0.0.tgz",
@@ -214,4 +211,4 @@
       }
     }
   }
-}
+
