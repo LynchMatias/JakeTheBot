@@ -1,1 +1,1 @@
-worker: node botchoto.js
+worker: node index.js
