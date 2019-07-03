@@ -1,6 +1,6 @@
 const {Command} = require('discord.js-commando');
 const mongoose = require('mongoose');
-const Reminder = require('C:/Users/matia/Desktop/JakeTheBot/models/reminders.js')
+const Reminder = require('../../models/reminders.js')
 
 const sleep = (milliseconds) => {
     return new Promise(resolve => setTimeout(resolve, milliseconds))
