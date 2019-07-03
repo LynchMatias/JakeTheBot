@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const { Command } = require('discord.js-commando');
-const index = require('C:/Users/matia/Desktop/JakeTheBot');
+const index = require('../../index.js');
 
 
 module.exports = class AvatarCommand extends Command {
