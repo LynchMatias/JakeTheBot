@@ -4,7 +4,7 @@ const path = require('path')
 const TOKEN = 'NTkzNzk2NjY2NjIwOTAzNDI0.XRTGWA.wn7PUglEB5DScFTqDKk5xQf_dNY';
 const mongoose = require('mongoose');
 const cron = require('node-cron');
-const Reminder = require('C:/Users/matia/Desktop/JakeTheBot/models/reminders.js')
+const Reminder = require('./models/reminders.js')
 const agua = 'https://cms.qz.com/wp-content/uploads/2018/12/water-filter-buying-guide-e1544721509833.jpg?quality=75&strip=all&w=3200&h=1800'
 
 const base = 'mongodb+srv://JakeBot:m5kPk9kDejJdbjTi@cluster0-zymck.mongodb.net/Users';
