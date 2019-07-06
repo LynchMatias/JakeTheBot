@@ -1,14 +1,15 @@
 const commando = require('discord.js-commando')
 const Discord = require('discord.js');
 const path = require('path')
+const TOKEN = 'MzQ0NjQwODAyNDI2OTc4MzA0.XRy5VQ.nZtJKAdCnIYtcsatYRW3RzokcQw';
 const mongoose = require('mongoose');
 const cron = require('node-cron');
-const Reminder = require('./models/reminders.js')
+const Reminder = require('./models/reminderDB.js')
 const agua = 'https://cms.qz.com/wp-content/uploads/2018/12/water-filter-buying-guide-e1544721509833.jpg?quality=75&strip=all&w=3200&h=1800'
 
-const base = 'mongodb+srv://JakeBot:m5kPk9kDejJdbjTi@cluster0-zymck.mongodb.net/Users';
+const base = 'mongodb+srv://JakeBot:m5kPk9kDejJdbjTi@cluster0-zymck.mongodb.net/UsersDev';
 
-mongoose.connect(base);
+mongoose.connect(base, { useNewUrlParser: true});
 
 const bot = new commando.Client({
     commandPrefix: '!',
@@ -35,8 +36,8 @@ module.exports = {
 bot.registry
 .registerDefaultTypes()
     .registerGroups([
-        ['first', 'Comandos basicos'],
-        ['second', 'Your Second Command Group'],
+        ['first', 'Your First Command Group'],
+        ['owner', 'Owner only commands'],
     ])
     .registerDefaultGroups()
     .registerDefaultCommands()
@@ -48,7 +49,7 @@ bot.on('ready', () => {
 
 
     cron.schedule('00 17 * * *', () => {
-        Reminder.find({}, (err, users) => {
+        ReminderUno.find({}, (err, users) => {
             if(err) console.log(err);
             if(users){
             users.map(user => {
@@ -85,4 +86,4 @@ bot.on('message', msg => {
     }
 });
 
-bot.login(process.env.BOT_TOKEN);
+bot.login(TOKEN);

@@ -1,12 +1,13 @@
 const mongoose = require('mongoose');
 const discord = require('discord.js');
 
-const reminderUnoSchema = mongoose.Schema({
+const reminderDBSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
     username: String,
     userID: String,
-    reminders: Object,
+    reminder: Object,
+    reminderString: String,
     frecuencia: Number,
 })
 
-module.exports = mongoose.model('Reminder Mergeado', reminderUnoSchema);
+module.exports = mongoose.model('Reminders', reminderDBSchema);
