@@ -1,7 +1,6 @@
 const commando = require('discord.js-commando')
 const Discord = require('discord.js');
 const path = require('path')
-//const TOKEN = 'MzQ0NjQwODAyNDI2OTc4MzA0.XRy5VQ.nZtJKAdCnIYtcsatYRW3RzokcQw';
 const mongoose = require('mongoose');
 const cron = require('node-cron');
 const ReminderDB = require('./models/reminderDB.js');
