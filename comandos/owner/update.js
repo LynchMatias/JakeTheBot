@@ -27,7 +27,7 @@ module.exports = class Estudiar extends Command {
                 fields: [
                     {
                         name: "Reminders",
-                        value: "New command: `!reminder <type>` to replace `!water`. The database has been reset. Use `!noreminder <type>` to leave the database."
+                        value: "New command: `!reminder <type>` to replace `!water`. The database has been reset. Use `!noreminder <type>` to leave the database. New type! `outside`"
                     },
                     {
                         name: "Reports",

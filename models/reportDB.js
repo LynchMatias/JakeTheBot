@@ -4,7 +4,7 @@ const reportDBSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
     username: String,
     userID: String,
-    report: String,
+    description: String,
     date: Object,
     resolved: Boolean,
 })

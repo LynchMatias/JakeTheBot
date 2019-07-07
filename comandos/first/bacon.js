@@ -20,7 +20,7 @@ module.exports = class BaconCommand extends Command {
     }
     
     async run(message){ 
-        if (message.channel.id != '333353428250263552'){
+        if (message.channel.id != '333353428250263552'){ //Solo en #music
             message.delete();
             return;
         }

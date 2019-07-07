@@ -43,7 +43,7 @@ function reacciono(message, typeObject, typeText){
 
 
 function crear_schedule(message, typeString){
-
+    console.log(typeString);
     ReminderDB.findOne({
         username: message.author.username,
         userID: message.author.id,
@@ -51,18 +51,20 @@ function crear_schedule(message, typeString){
     }, (err, user) => {
         if(err) console.log(err);
         if(user){
-             cron.schedule("00 17 * * *", () => {
+            console.log('encontro');
+             cron.schedule("* * * * * *", () => {
                 var sendEmbed = new Discord.RichEmbed()
                     .setColor('#0099ff')
                     .setTitle(user.reminder.title)
                     .setImage(user.reminder.img);
+                console.log(`creado schedule para ${user.username} de ${user.reminder.title}`);
 
                 message.author.send({ embed: sendEmbed })
-                    .then(() => console.log('sent message'))
+                    .then(() => console.log(`sent ${user.username} reminder ${user.reminder.title}`))
                     .catch(err => console.log(err));
              }, {
                      sheduled: true,
-                     timezone: "America/Argentina/Buenos_Aires",
+                     
                  });   
         }
     })
@@ -89,11 +91,11 @@ function waterReminder(message, arg){
                     collector.on('collect', () => reacciono(message, new waterObject(), 'water'));
                 });
         } else {
-            message.reply('Youre already being reminded of this! To leave type ```!noreminder water```');
+            message.author.send('Youre already being reminded of this! To leave type ```!noreminder water```');
         }
     });
 
-    crear_schedule(message, arg.option);
+    //crear_schedule(message, arg.option);
     
 }
 
@@ -119,11 +121,11 @@ function outsideReminder(message, arg) {
                     collector.on('collect', () => reacciono(message, new outsideObject(), 'outside'));
                 });
         } else {
-            message.reply('Youre already being reminded of this! To leave type ```!noreminder outside```');
+            message.author.send('Youre already being reminded of this! To leave type ```!noreminder outside```');
         }
     });
 
-    crear_schedule(message, arg.option);
+    //crear_schedule(message, arg.option);
 }
 
 

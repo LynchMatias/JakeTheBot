@@ -2,7 +2,6 @@ const { Command } = require('discord.js-commando');
 const Report = require('../../models/reportDB.js');
 const mongoose = require('mongoose');
 
-
 module.exports = class ReportCommand extends Command {
     constructor(client) {
         super(client, {
@@ -13,7 +12,7 @@ module.exports = class ReportCommand extends Command {
             ownerOnly: false,
             args: [
                 {
-                key: 'report',
+                key: 'description',
                 prompt: 'You need to type something',
                 type: 'string'
             }
@@ -28,7 +27,7 @@ module.exports = class ReportCommand extends Command {
             _id: mongoose.Types.ObjectId(),
             username: message.author.username,
             userID: message.author.id,
-            report: arg.report,
+            description: arg.description,
             date: message.createdAt,
             resolved: false,
         })
@@ -37,6 +36,8 @@ module.exports = class ReportCommand extends Command {
         .catch(err => console.log(err));
 
         message.say('Thanks for the report!');
+        //const owner = bot.user.get(JakeyID);
+        //owner.send(`${message.author.username} just sent a report!`);
 
     }
 }

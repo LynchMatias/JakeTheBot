@@ -21,14 +21,14 @@ module.exports = class AvatarCommand extends Command {
     }
 
     run(message, {tag}) {
-        if (message.channel.id != '596082817734148157') message.delete();
+        if (message.channel.id != '596082817734148157') message.delete(); //Solo en #water-bot
         else{
-            const user = index.getUserFromMention(tag);
+            const user = index.getUserFromMention(tag); //Busco el user del @
             if(!user){
                 return message.say('Error')
             }
             
-            var foto = new Discord.RichEmbed()
+            var foto = new Discord.RichEmbed()  //Embed con nombre + foto
                 .setColor('#0099ff')
                 .setTitle(user.username)
                 .setImage(user.displayAvatarURL)

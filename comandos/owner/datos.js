@@ -1,5 +1,5 @@
 const { Command } = require('discord.js-commando');
-const mongoose = require('mongoose');
+//const mongoose = require('mongoose');
 const ReminderDB = require('../../models/reminderDB.js')
 
 const sleep = (milliseconds) => {

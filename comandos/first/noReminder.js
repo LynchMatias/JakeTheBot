@@ -31,7 +31,7 @@ module.exports = class NoReminderReminder extends Command {
             if (!user) {
                 message.reply('Youre not in the database. To be reminded of this, type' + ` !reminder ${arg.option}`);
             } else{
-             message.reply('You have been removed from the database!');
+                message.reply(`You have been removed from the ${arg.option} database!`);
              console.log(user);
             }
         });

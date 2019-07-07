@@ -1,13 +1,12 @@
 const commando = require('discord.js-commando')
 const Discord = require('discord.js');
 const path = require('path')
-const TOKEN = 'MzQ0NjQwODAyNDI2OTc4MzA0.XRy5VQ.nZtJKAdCnIYtcsatYRW3RzokcQw';
+//const TOKEN = 'MzQ0NjQwODAyNDI2OTc4MzA0.XRy5VQ.nZtJKAdCnIYtcsatYRW3RzokcQw';
 const mongoose = require('mongoose');
 const cron = require('node-cron');
-const Reminder = require('./models/reminderDB.js')
-const agua = 'https://cms.qz.com/wp-content/uploads/2018/12/water-filter-buying-guide-e1544721509833.jpg?quality=75&strip=all&w=3200&h=1800'
-
-const base = 'mongodb+srv://JakeBot:m5kPk9kDejJdbjTi@cluster0-zymck.mongodb.net/UsersDev';
+const ReminderDB = require('./models/reminderDB.js');
+mongoose.set('useFindAndModify', false);
+const base = 'mongodb+srv://JakeBot:m5kPk9kDejJdbjTi@cluster0-zymck.mongodb.net/Users';
 
 mongoose.connect(base, { useNewUrlParser: true});
 
@@ -48,26 +47,27 @@ bot.on('ready', () => {
     bot.user.setActivity('with Javascript')
 
 
+
     cron.schedule('00 17 * * *', () => {
-        ReminderUno.find({}, (err, users) => {
+        ReminderDB.find({}, (err, users) => {
             if(err) console.log(err);
             if(users){
             users.map(user => {
                 const userObject = bot.users.get(user.userID);
                 
-                var water = new Discord.RichEmbed()
+                var sendEmbed = new Discord.RichEmbed()
                     .setColor('#0099ff')
-                    .setTitle('Remember to drink water!')
-                    .setImage(agua);
+                    .setTitle(user.reminder.title)
+                    .setImage(user.reminder.img);
 
-                userObject.send({embed: water})
-                .then(() => console.log('sent message'))
+                userObject.send({embed: sendEmbed})
+                .then(() => console.log('sent message index'))
                 .catch(err => console.log(err));              
             });
             }else console.log('No hay nadie en la lista');
         },{
                 sheduled: true,
-                timezone: "America/Buenos_Aires",
+                timezone: "America/Argentina/Buenos_Aires",
         });
     });
 });
@@ -86,4 +86,5 @@ bot.on('message', msg => {
     }
 });
 
-bot.login(TOKEN);
+//bot.login(TOKEN);
+bot.login(process.env.BOT_TOKEN);
