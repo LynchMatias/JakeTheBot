@@ -5,9 +5,8 @@ const mongoose = require('mongoose');
 const cron = require('node-cron');
 const ReminderDB = require('./models/reminderDB.js');
 mongoose.set('useFindAndModify', false);
-const base = 'mongodb+srv://JakeBot:m5kPk9kDejJdbjTi@cluster0-zymck.mongodb.net/Users';
 
-mongoose.connect(base, { useNewUrlParser: true});
+mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true});
 
 const bot = new commando.Client({
     commandPrefix: '!',
