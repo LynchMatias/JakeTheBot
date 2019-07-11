@@ -42,7 +42,7 @@ bot.registry
 
 bot.on('ready', () => {
     console.log(`Logged in as ${bot.user.tag}!`);
-    bot.user.setActivity('with Javascript')
+    bot.user.setActivity('YouTube', {type: 'WATCHING'});
 
 
 
